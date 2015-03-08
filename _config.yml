@@ -1,0 +1,39 @@
+# Site settings
+title:       Jearvon Dharrie
+email:       j.dharrie@gmail.com
+author:      Jearvon Dharrie
+description: "Jearvon Dharrie's web presence"
+baseurl:     ""
+url:         "http://jearvondharrie.com"
+
+# Google analytics
+google_analytics:
+
+# Optional features
+animated:           false
+show_related_posts: false
+show_post_footers:  false
+
+# Disqus post comments
+# (leave blank to disable Disqus)
+disqus_shortname:
+
+# Social icons
+show_social_icons: true
+github_username: iamjarvo
+stackoverflow_id:
+twitter_username: jearvon
+google_plus_id:
+linkedin_username:
+bitcoin_url:
+paypal_url:
+flattr_button:
+
+# Build settings
+markdown:     redcarpet
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+permalink:    pretty
+paginate:     3
+sass:
+  compressed: true
