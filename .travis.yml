@@ -2,3 +2,14 @@ language: ruby
 script: bundle exec jekyll build
 rvm:
 - 2.2.0
+deploy:
+  provider: s3
+  access_key_id: AKIAJYGVJGXIRWWHKO7Q
+  secret_access_key:
+    secure: dqCDXH7zsj/xOz4l9PE2zxa7TZu/ATFCDSRF9rv4zV0lLZ1e+w6kAcAFohjnGfH1z5E6iBm2jxVE07Ii+qxCgzIGwVuFpHqQUH6xdE7jFmhJW4TwDu3YpH8pgUAkgMLB+BSaMtDVutBswK6sf+W67O53FI+rTp02ITla1J2yVgs=
+  bucket: jearvondharrie.com
+  acl: public_read
+  local_dir: _site
+  on:
+    repo: iamjarvo/jearvondharrie.com
+    branch: master
