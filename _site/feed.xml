@@ -6,5 +6,23 @@
     <link>http://jearvondharrie.com/</link>
     <atom:link href="http://jearvondharrie.com/feed.xml" rel="self" type="application/rss+xml" />
     
+      <item>
+        <title>Load contents of another file into the current file in Vim</title>
+        <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;Need the contents of another file in the current file.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Vim&amp;rsquo;s Ex command &lt;code&gt;read&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;  :read &lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;needed/&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/17735.js&quot; id=&quot;asciicast-17735&quot; async&gt;&lt;/script&gt;
+</description>
+        <pubDate>Sun, 15 Mar 2015 00:00:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/blog/2015/03/15/vim-load-contents-from-another-file/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/blog/2015/03/15/vim-load-contents-from-another-file/</guid>
+      </item>
+    
   </channel>
 </rss>

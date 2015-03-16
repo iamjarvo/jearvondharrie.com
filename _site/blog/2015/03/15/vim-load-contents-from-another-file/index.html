@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Load contents of another file into the current file in Vim &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jearvon Dharrie's web presence">
+    <meta name="description" content="Vim trick">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/">
+    <meta name="keywords" content="blog">
+    <link rel="canonical" href="http://jearvondharrie.com/blog/2015/03/15/vim-load-contents-from-another-file/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Load contents of another file into the current file in Vim">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/">
+    <meta property="og:url" content="http://jearvondharrie.com/blog/2015/03/15/vim-load-contents-from-another-file/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,34 +90,37 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/blog/2015/03/15/vim-load-contents-from-another-file/" class="post-link">
-          <p class="post-meta">Mar 15, 2015</p>
-          <h3 class="h2 post-title">Load contents of another file into the current file in Vim</h3>
-          <p class="post-summary">Vim trick</p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      <span class="pagination-item disabled">Newer</span>
-    
-  </div>
-  <div class="right">
-    
-      <span class="pagination-item disabled">Older</span>
-    
-  </div>
+
+
+<div class="post-header mb2">
+  <h1>Load contents of another file into the current file in Vim</h1>
+  <span class="post-meta">Mar 15, 2015</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <h3 id="problem">Problem</h3>
+
+<p>Need the contents of another file in the current file.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>Vim&rsquo;s Ex command <code>read</code>.</p>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim">  :read <span class="nb">path</span><span class="sr">/to/</span>needed/<span class="k">file</span>
+</code></pre></div>
+<script type="text/javascript" src="https://asciinema.org/a/17735.js" id="asciicast-17735" async></script>
+
+</article>
+
+
+
+
+
+
 
       </div>
     </div>
