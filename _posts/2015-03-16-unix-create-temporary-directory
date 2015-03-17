@@ -1,0 +1,11 @@
+---
+layout: post
+title: Create a temporary folder using unix mktemp
+category: blog
+tags: tidbit, unix, mktemp
+year: 2015
+month: 3
+day: 16
+published: true
+summary: Unix trick
+---
