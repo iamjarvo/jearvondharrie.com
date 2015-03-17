@@ -39,4 +39,4 @@ sass:
   compressed: true
 
 # Exclude
-exclude: ['Gemfile', 'Gemfile.lock', 'vendor']
+exclude: ['Gemfile', 'Gemfile.lock', 'vendor', 'README.md', 'CNAME']
