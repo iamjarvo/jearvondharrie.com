@@ -7,6 +7,28 @@
     <atom:link href="http://jearvondharrie.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Skip to next modified file in git</title>
+        <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;You would like to skip a large file in a &lt;a href=&quot;http://git-scm.com/docs/git-diff&quot;&gt;git diff&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Git sends the output to &lt;a href=&quot;http://unixhelp.ed.ac.uk/CGI/man-cgi?less&quot;&gt;less&lt;/a&gt;. This
+means you can use the less search command.
+Each file in the diff starts with &lt;code&gt;diff&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;  /^diff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above searches for the next line that starts with the word diff.&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/17829.js&quot; id=&quot;asciicast-17829&quot; async&gt;&lt;/script&gt;
+</description>
+        <pubDate>Wed, 18 Mar 2015 00:00:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/blog/2015/03/18/jump-to-next-file-in-git-diff/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/blog/2015/03/18/jump-to-next-file-in-git-diff/</guid>
+      </item>
+    
+      <item>
         <title>Load contents of another file into the current file in Vim</title>
         <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
 
