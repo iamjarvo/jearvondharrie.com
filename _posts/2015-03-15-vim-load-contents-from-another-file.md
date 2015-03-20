@@ -22,4 +22,7 @@ Vim's Ex command `read`.
   :read path/to/needed/file
 ```
 
+<em>EDIT: I dislike having to delete the empty line. `:0r` will replace the current
+line under the cursor.</em>
+
 <script type="text/javascript" src="https://asciinema.org/a/17735.js" id="asciicast-17735" async></script>

@@ -39,6 +39,9 @@ Each file in the diff starts with &lt;code&gt;diff&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Vim&amp;rsquo;s Ex command &lt;code&gt;read&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;  :read &lt;span class=&quot;nb&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/to/&lt;/span&gt;needed/&lt;span class=&quot;k&quot;&gt;file&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;EDIT: I dislike having to delete the empty line. &lt;code&gt;:0r&lt;/code&gt; will replace the current
+line under the cursor.&lt;/em&gt;&lt;/p&gt;
+
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/17735.js&quot; id=&quot;asciicast-17735&quot; async&gt;&lt;/script&gt;
 </description>
         <pubDate>Sun, 15 Mar 2015 00:00:00 -0400</pubDate>
