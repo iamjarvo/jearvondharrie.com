@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Link_to Takes a Block! &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Jearvon Dharrie's web presence">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Link_to Takes a Block!">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/">
+    <meta property="og:url" content="http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,50 +90,40 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/blog/2015/03/18/jump-to-next-file-in-git-diff/" class="post-link">
-          <p class="post-meta">Mar 18, 2015</p>
-          <h3 class="h2 post-title">Skip to next modified file in git</h3>
-          <p class="post-summary">Jumping around in a git diff</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/blog/2015/03/15/vim-load-contents-from-another-file/" class="post-link">
-          <p class="post-meta">Mar 15, 2015</p>
-          <h3 class="h2 post-title">Load contents of another file into the current file in Vim</h3>
-          <p class="post-summary">Vim trick</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/heroku/2012/02/17/managing-multiple-heroku-repos-for-the-same-app/" class="post-link">
-          <p class="post-meta">Feb 17, 2012</p>
-          <h3 class="h2 post-title">Managing Multiple Heroku Repos for the Same App</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      <span class="pagination-item disabled">Newer</span>
-    
-  </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2/">Older</a>
-    
-  </div>
+
+
+<div class="post-header mb2">
+  <h1>Link_to Takes a Block!</h1>
+  <span class="post-meta">Jul 21, 2011</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <p>Have you ever wanted to surround a block of HTML with an a tag, for example a group of images. It is possible to do this because <a href="http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to" title="link_to" target="_blank"></a> takes a block. According to apidock the syntax is:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="n">link_to</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">html_options</span> <span class="o">=</span> <span class="p">{})</span> <span class="k">do</span>
+      <span class="c1"># name</span>
+    <span class="k">end</span>
+</code></pre></div>
+<p>In my idea situation i need to get the images for all the books in a certain genre and have them surrounded by one a tag. Reason I need this is because they are forming a slideshow. My code came out to be:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">     <span class="o">&lt;</span><span class="sx">% link_to(genre_path(genre)) </span><span class="k">do</span> <span class="sx">%&gt;</span>
+<span class="sx">        &lt;div class=&quot;home_gallery_images&quot;&gt;</span>
+          <span class="o">&lt;</span><span class="sx">% books </span><span class="o">=</span> <span class="n">books</span><span class="o">.</span><span class="n">shuffle</span> <span class="sx">%&gt;</span>
+<span class="sx">          &lt;% for book in books %&gt;</span>
+            <span class="o">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">cover</span><span class="o">.</span><span class="n">url</span><span class="p">(</span><span class="ss">:medium</span><span class="p">))</span> <span class="sx">%&gt;</span>
+<span class="sx">          &lt;% end %&gt;</span>
+      <span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</code></pre></div>
+</article>
+
+
+
+
+
+
 
       </div>
     </div>

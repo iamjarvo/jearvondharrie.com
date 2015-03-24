@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Capistrano Deployment Woes: Old Files/templates Being Used &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Jearvon Dharrie's web presence">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://jearvondharrie.com/2011/10/04/capistrano-deployment-woes--old-files-templates-being-used/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Capistrano Deployment Woes: Old Files/templates Being Used">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/">
+    <meta property="og:url" content="http://jearvondharrie.com/2011/10/04/capistrano-deployment-woes--old-files-templates-being-used/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,50 +90,34 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/blog/2015/03/18/jump-to-next-file-in-git-diff/" class="post-link">
-          <p class="post-meta">Mar 18, 2015</p>
-          <h3 class="h2 post-title">Skip to next modified file in git</h3>
-          <p class="post-summary">Jumping around in a git diff</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/blog/2015/03/15/vim-load-contents-from-another-file/" class="post-link">
-          <p class="post-meta">Mar 15, 2015</p>
-          <h3 class="h2 post-title">Load contents of another file into the current file in Vim</h3>
-          <p class="post-summary">Vim trick</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/heroku/2012/02/17/managing-multiple-heroku-repos-for-the-same-app/" class="post-link">
-          <p class="post-meta">Feb 17, 2012</p>
-          <h3 class="h2 post-title">Managing Multiple Heroku Repos for the Same App</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      <span class="pagination-item disabled">Newer</span>
-    
-  </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2/">Older</a>
-    
-  </div>
+<div class="post-header mb2">
+  <h1>Capistrano Deployment Woes: Old Files/templates Being Used</h1>
+  <span class="post-meta">Oct 4, 2011</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <p>I have published my first app with rails. It can be viewed <a href="clarencedauphinotinvitational.com">here</a>. To deploy my app on my server I decided to use github and capistrano. 
+Even though I deployed a new copy I noticed that actionmailer was using old files with old configs. I thought it was a caching issue but it was not. I was using resque to queue up my emails.
+So I was starting the queue for resque manually. I tried stopping and restarting the queue but it did not help. Since capistrano symlinks the current folder with the latest release folder, when 
+I cd to the current folder it went to the latest release folder. When I pushed a new release there would be a new release folder but my queue would still be running in the old release folder. </p>
+
+<h3>Solution</h3>
+
+<p>This is partly my fault because things should be automated. I should have wrote a task that automated restarting the queue. At the time I didn&rsquo;t know a lot about capistrano and I was under a deadline. To fix this everytime you deploy, stop the queue, cd out the current folder, cd back into the current folder and start the queue.
+ So if you are using anytime of process that relies on running from a folder this solution should work.</p>
+
+</article>
+
+
+
+
+
+
 
       </div>
     </div>

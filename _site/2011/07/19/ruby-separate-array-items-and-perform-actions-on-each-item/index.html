@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Separate Array Items and Perform Actions on Each Item &#8211; Jearvon Dharrie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jearvon Dharrie's web presence">
+    <meta name="author" content="Jearvon Dharrie">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ruby Separate Array Items and Perform Actions on Each Item">
+    <meta property="og:description" content="Jearvon Dharrie's web presence">
+    <meta property="og:url" content="http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/">
+    <meta property="og:site_name" content="Jearvon Dharrie">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+</head>
+
+<body class="">
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://jearvondharrie.com" class="site-title">Jearvon Dharrie</a>
+      <nav class="site-nav right">
+        <a href="/about/">About</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="left">
+    
+      <a class="fa fa-github" href="https://github.com/iamjarvo"></a>
+    
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/jearvon"></a>
+    
+    
+    
+      <a class="fa fa-envelope" href="mailto:j.dharrie@gmail.com"></a>
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Ruby Separate Array Items and Perform Actions on Each Item</h1>
+  <span class="post-meta">Jul 19, 2011</span><br>
+  
+  <span class="post-meta small">2 minute read</span>
+</div>
+
+<article class="post-content">
+  <p>Ever wanted to separate the values in an array and also link them to
+something. Before I knew about the map method I used each<em>with</em>index. I
+knew this wasn&rsquo;t very railseque. Below is a snippet using the
+each<em>with</em>index.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="c1">#authors is an array and loop through with each_with_index. Returns</span>
+    <span class="n">author</span> <span class="k">then</span> <span class="n">index</span><span class="o">.</span>
+    <span class="c1">#on each iteration make an a tag using link_to and link it to the</span>
+    <span class="n">author</span><span class="o">.</span> <span class="no">Add</span> <span class="n">a</span> <span class="n">comma</span> <span class="n">to</span> <span class="n">the</span> <span class="k">end</span> <span class="k">unless</span> <span class="n">its</span> <span class="n">the</span> <span class="n">last</span> <span class="n">one</span> <span class="k">in</span> <span class="n">the</span> <span class="n">index</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">signifies</span> <span class="n">the</span> <span class="n">last</span> <span class="n">key</span> <span class="k">in</span> <span class="n">the</span> <span class="n">array</span><span class="p">)</span>
+    <span class="vi">@authors</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">author</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span> 
+      <span class="n">link_to</span> <span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">author_path</span><span class="p">(</span><span class="n">author</span><span class="p">)</span> 
+       <span class="s1">&#39;, &#39;</span> <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="vi">@authors</span><span class="o">.</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">end</span>
+</code></pre></div>
+<p>This can be more railseque by using the map method.</p>
+
+<p>Map is defined in apidock as &lsquo;Returns a new array with the results of
+running block once for every element in enum.&rsquo; What this basically means
+is it will loop over the array and make changes to the each item in the
+array and then add it to a new temporary array.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="vi">@authors</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">author</span><span class="o">|</span>
+      <span class="p">(</span><span class="n">link_to</span> <span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">author_path</span><span class="p">(</span><span class="n">author</span><span class="p">))</span><span class="o">.</span><span class="n">join</span><span class="p">(,)</span><span class="o">.</span><span class="n">html_safe</span>
+    <span class="k">end</span>
+</code></pre></div><div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="vi">@authors</span><span class="o">.</span><span class="n">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">author</span><span class="o">|</span>
+</code></pre></div>
+<p>Above line is the map method </p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="p">(</span><span class="n">link_to</span> <span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">author_path</span><span class="p">(</span><span class="n">author</span><span class="p">))</span><span class="o">.</span><span class="n">join</span><span class="p">(,)</span><span class="o">.</span><span class="n">html_safe</span>
+</code></pre></div>
+<p>Above line is the block of code that runs on each array item. When the
+map method is done it returns an array with however many elements and
+then we concatenate those with a join. I found that the join was printing
+out the html tags as a string so I used .html_safe to have it print out
+html code also. This way handles the last comma issue without
+the extra code. Very railseque I would say!</p>
+
+</article>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="p2 wrap">
+    <div class="measure mt1 center">
+      <small>
+        Crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+        &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+      </small>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5609142-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>

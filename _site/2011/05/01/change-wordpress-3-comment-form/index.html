@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Change Wordpress 3 Comment Form &#8211; Jearvon Dharrie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jearvon Dharrie's web presence">
+    <meta name="author" content="Jearvon Dharrie">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://jearvondharrie.com/2011/05/01/change-wordpress-3-comment-form/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Change Wordpress 3 Comment Form">
+    <meta property="og:description" content="Jearvon Dharrie's web presence">
+    <meta property="og:url" content="http://jearvondharrie.com/2011/05/01/change-wordpress-3-comment-form/">
+    <meta property="og:site_name" content="Jearvon Dharrie">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+</head>
+
+<body class="">
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://jearvondharrie.com" class="site-title">Jearvon Dharrie</a>
+      <nav class="site-nav right">
+        <a href="/about/">About</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+        <div class="social-icons">
+  <div class="left">
+    
+      <a class="fa fa-github" href="https://github.com/iamjarvo"></a>
+    
+    
+    <a class="fa fa-rss" href="/feed.xml"></a>
+    
+      <a class="fa fa-twitter" href="https://twitter.com/jearvon"></a>
+    
+    
+    
+      <a class="fa fa-envelope" href="mailto:j.dharrie@gmail.com"></a>
+    
+    
+  </div>
+  <div class="right">
+    
+    
+    
+  </div>
+</div>
+<div class="clearfix"></div>
+
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Change Wordpress 3 Comment Form</h1>
+  <span class="post-meta">May 1, 2011</span><br>
+  
+  <span class="post-meta small">2 minute read</span>
+</div>
+
+<article class="post-content">
+  <p>Wordpress 3 comes with a default comment form. The structure of this form might not be what you. To change this wordpress provides a function called <a href="http://codex.wordpress.org/Function_Reference/comment_form">comment_form</a>. </p>
+
+<p>Comment form takes numerious arguments, but I will only show you two of them. Fields which handles the 3 defaults fields(name, email, and website) and comment_field which handles the text_area field. </p>
+
+<p>First the arguments for the default fields must be specified. You can copy and paste the html from the old form and just make the changes you want. Keeping the name of the input fields is important but I would suggest keeping the ids the same</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+    <span class="nv">$field_args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> 
+        <span class="s1">&#39;&lt;p class=&quot;comment-form-author&quot;&gt;&lt;label for=&quot;author&quot;&gt;Name (Required)&lt;/label&gt;</span>
+<span class="s1">        &lt;input class=&quot;comment_form_custom&quot; type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; /&gt;</span>
+<span class="s1">        &lt;/p&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;&lt;p class=&quot;comment-form-email&quot;&gt;&lt;label for=&quot;email&quot;&gt;Email (Required)&lt;/label&gt;</span>
+<span class="s1">          &lt;input class=&quot;comment_form_custom&quot; type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; /&gt;</span>
+<span class="s1">        &lt;/p&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span>
+        <span class="s1">&#39;&lt;p class=&quot;comment-form-url&quot;&gt;&lt;label for=&quot;url&quot;&gt;Website&lt;/label&gt;</span>
+<span class="s1">        &lt;input class=&quot;comment_form_custom&quot; type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; /&gt;&lt;/p&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;&lt;p&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;/p&gt;&#39;</span>
+        <span class="p">);</span>
+    <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Then we can specify the arguments for the comment form. One of the arguments for comment form will take the field_args, the other will take the argument for the comment textarea. For the fields argument, a filter to the comment_default fields must be applied using the field_args.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">    </span><span class="cp">&lt;?php</span>
+    <span class="nv">$new_comment_form</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">&#39;fields&#39;</span> <span class="o">=&gt;</span> <span class="nx">apply_filters</span><span class="p">(</span><span class="s1">&#39;comment_default_fields&#39;</span><span class="p">,</span> <span class="nv">$field_args</span><span class="p">),</span>
+      <span class="s1">&#39;comment_field&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&lt;p class=&quot;comment-form-comment&quot;&gt;&lt;label for=&quot;comment&quot;&gt;Comment (Required)&lt;/label&gt;&lt;textarea id=&quot;comment&quot; name=&quot;comment&quot; cols=&quot;45&quot; rows=&quot;8&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;&#39;</span>
+    <span class="p">);</span>
+    <span class="p">);</span>
+    <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h3>Summary</h3>
+
+<p>To change the comment form you must specify the default field arguments then pass them into comment_form arguments along with the comment_field argument. It&rsquo;s important to keep the names of the inputs/textarea the same as the default structure. </p>
+
+<h3>Where could you use this?</h3>
+
+<p>You can use this to change the wording of the labels or the element that the inputs are in.This came in handy for me because I did not like the default structure of the comment form. For example asterisks were being used to show required fields, I wanted to word required to be displayed instead.</p>
+
+</article>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="p2 wrap">
+    <div class="measure mt1 center">
+      <small>
+        Crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+        &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+      </small>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5609142-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>

@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Rails/Haml Print HTML Element if Value Exists &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Jearvon Dharrie's web presence">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Rails/Haml Print HTML Element if Value Exists">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/">
+    <meta property="og:url" content="http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,50 +90,30 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/blog/2015/03/18/jump-to-next-file-in-git-diff/" class="post-link">
-          <p class="post-meta">Mar 18, 2015</p>
-          <h3 class="h2 post-title">Skip to next modified file in git</h3>
-          <p class="post-summary">Jumping around in a git diff</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/blog/2015/03/15/vim-load-contents-from-another-file/" class="post-link">
-          <p class="post-meta">Mar 15, 2015</p>
-          <h3 class="h2 post-title">Load contents of another file into the current file in Vim</h3>
-          <p class="post-summary">Vim trick</p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/heroku/2012/02/17/managing-multiple-heroku-repos-for-the-same-app/" class="post-link">
-          <p class="post-meta">Feb 17, 2012</p>
-          <h3 class="h2 post-title">Managing Multiple Heroku Repos for the Same App</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      <span class="pagination-item disabled">Newer</span>
-    
-  </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page2/">Older</a>
-    
-  </div>
+
+
+<div class="post-header mb2">
+  <h1>Rails/Haml Print HTML Element if Value Exists</h1>
+  <span class="post-meta">Aug 13, 2011</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <p>I am using a breadcrumb gem which is very handy. Its called <a href="https://github.com/weppos/breadcrumbs_on_rails" title="breadcrumb on rails" target="_blank">breadcrumb on rails</a>, I highly recommend you check it out. I had the gem rendering in my application layout file, and even though I didnt have a breadcrumb for certain controller it would still print the html element. My solution was to use a <a href="http://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag" title="content_tag" target="_blank">content_tag</a> and an if statement. Below is the snippet.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="c1"># bascially checks if @breadcrumbs has a value and if it does renders the html element and breadcrumb info</span>
+    <span class="o">=</span> <span class="n">content_tag</span><span class="p">(</span><span class="ss">:div</span><span class="p">,</span> <span class="n">render_breadcrumbs</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;breadcrumbs&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@breadcrumbs</span>
+</code></pre></div>
+</article>
+
+
+
+
+
+
 
       </div>
     </div>

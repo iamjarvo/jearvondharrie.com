@@ -49,5 +49,144 @@ line under the cursor.&lt;/em&gt;&lt;/p&gt;
         <guid isPermaLink="true">http://jearvondharrie.com/blog/2015/03/15/vim-load-contents-from-another-file/</guid>
       </item>
     
+      <item>
+        <title>Managing Multiple Heroku Repos for the Same App</title>
+        <description>&lt;p&gt;Recently I had to manage an app that had the staging and production version on
+heroku. When pushing you don&amp;rsquo;t have to worry about which version to push to
+because each repo has a remote name, (i.e. heroku-staging, heroku-production).
+When it comes to running app specific things though such as console you have to
+pass in the app name with this flag &amp;ndash;app appname. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  heroku run script/console --app heroku staging
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Fri, 17 Feb 2012 18:15:00 -0500</pubDate>
+        <link>http://jearvondharrie.com/heroku/2012/02/17/managing-multiple-heroku-repos-for-the-same-app/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/heroku/2012/02/17/managing-multiple-heroku-repos-for-the-same-app/</guid>
+      </item>
+    
+      <item>
+        <title>ERROR 2002 (HY000) - Rails MySQL</title>
+        <description>&lt;p&gt;Rails uses sqlite3 by default, but I wanted to use mysql. Reason for this is I had set up MySQL on my vps already and wanted to use the same db technology for dev and producton. Coming from a php background my computer was already using MAMP pro for php and MySQL, so I decided to just use MAMP pro. Even though I had the right credentials in the database.yml file I kepy getting the ERROR 2002. I tried switching the host to 127.0.0.1 but it did not work. The solution that I came up with is to delete the host line and add a socket line.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  socket : /path/to/socket
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Sun, 20 Nov 2011 15:53:00 -0500</pubDate>
+        <link>http://jearvondharrie.com/2011/11/20/error-2002-hy000---rails-mysql/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/11/20/error-2002-hy000---rails-mysql/</guid>
+      </item>
+    
+      <item>
+        <title>Capistrano Deployment Woes: Old Files/templates Being Used</title>
+        <description>&lt;p&gt;I have published my first app with rails. It can be viewed &lt;a href=&quot;clarencedauphinotinvitational.com&quot;&gt;here&lt;/a&gt;. To deploy my app on my server I decided to use github and capistrano. 
+Even though I deployed a new copy I noticed that actionmailer was using old files with old configs. I thought it was a caching issue but it was not. I was using resque to queue up my emails.
+So I was starting the queue for resque manually. I tried stopping and restarting the queue but it did not help. Since capistrano symlinks the current folder with the latest release folder, when 
+I cd to the current folder it went to the latest release folder. When I pushed a new release there would be a new release folder but my queue would still be running in the old release folder. &lt;/p&gt;
+
+&lt;h3&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;This is partly my fault because things should be automated. I should have wrote a task that automated restarting the queue. At the time I didn&amp;rsquo;t know a lot about capistrano and I was under a deadline. To fix this everytime you deploy, stop the queue, cd out the current folder, cd back into the current folder and start the queue.
+ So if you are using anytime of process that relies on running from a folder this solution should work.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Oct 2011 10:53:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/10/04/capistrano-deployment-woes--old-files-templates-being-used/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/10/04/capistrano-deployment-woes--old-files-templates-being-used/</guid>
+      </item>
+    
+      <item>
+        <title>Bookmarklet for Opening Links in a New Tab</title>
+        <description>&lt;p&gt;I have come across multiple people complianing about site like hackernews or google not opening links in a new tab. So I made a simple bookmarklet that gives the user the preference to open links in a new page with a click.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:(function (){if(document.getElementsByTagName(&#39;a&#39;)){anchors = document.getElementsByTagName(&#39;a&#39;);for(var i = 0;  i &lt; anchors.length; i++){anchors[i].setAttribute(&#39;target&#39;, &#39;blank&#39;) ;}}}());&quot;&gt;NT&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Basically just drag the &amp;ldquo;NT&amp;rdquo; to the bookmark bar and then click it when you are on the page. When you get to hacker news or are finished with your google search, click the bookmark in your bookmark bar. Links will then be opened in a new tab.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 25 Aug 2011 23:52:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/08/25/bookmarklet-for-opening-links-in-a-new-tab/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/08/25/bookmarklet-for-opening-links-in-a-new-tab/</guid>
+      </item>
+    
+      <item>
+        <title>Rails/Haml Print HTML Element if Value Exists</title>
+        <description>&lt;p&gt;I am using a breadcrumb gem which is very handy. Its called &lt;a href=&quot;https://github.com/weppos/breadcrumbs_on_rails&quot; title=&quot;breadcrumb on rails&quot; target=&quot;_blank&quot;&gt;breadcrumb on rails&lt;/a&gt;, I highly recommend you check it out. I had the gem rendering in my application layout file, and even though I didnt have a breadcrumb for certain controller it would still print the html element. My solution was to use a &lt;a href=&quot;http://apidock.com/rails/ActionView/Helpers/TagHelper/content_tag&quot; title=&quot;content_tag&quot; target=&quot;_blank&quot;&gt;content_tag&lt;/a&gt; and an if statement. Below is the snippet.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;# bascially checks if @breadcrumbs has a value and if it does renders the html element and breadcrumb info&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_breadcrumbs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;breadcrumbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@breadcrumbs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Sat, 13 Aug 2011 18:15:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/</guid>
+      </item>
+    
+      <item>
+        <title>Link_to Takes a Block!</title>
+        <description>&lt;p&gt;Have you ever wanted to surround a block of HTML with an a tag, for example a group of images. It is possible to do this because &lt;a href=&quot;http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to&quot; title=&quot;link_to&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt; takes a block. According to apidock the syntax is:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;link_to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# name&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In my idea situation i need to get the images for all the books in a certain genre and have them surrounded by one a tag. Reason I need this is because they are forming a slideshow. My code came out to be:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% link_to(genre_path(genre)) &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sx&quot;&gt;        &amp;lt;div class=&amp;quot;home_gallery_images&amp;quot;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% books &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shuffle&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sx&quot;&gt;          &amp;lt;% for book in books %&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:medium&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sx&quot;&gt;          &amp;lt;% end %&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% end &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Thu, 21 Jul 2011 13:44:29 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/</guid>
+      </item>
+    
+      <item>
+        <title>Ruby Separate Array Items and Perform Actions on Each Item</title>
+        <description>&lt;p&gt;Ever wanted to separate the values in an array and also link them to
+something. Before I knew about the map method I used each&lt;em&gt;with&lt;/em&gt;index. I
+knew this wasn&amp;rsquo;t very railseque. Below is a snippet using the
+each&lt;em&gt;with&lt;/em&gt;index.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;#authors is an array and loop through with each_with_index. Returns&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#on each iteration make an a tag using link_to and link it to the&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;signifies&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@authors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each_with_index&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
+      &lt;span class=&quot;n&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+       &lt;span class=&quot;s1&quot;&gt;&amp;#39;, &amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@authors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This can be more railseque by using the map method.&lt;/p&gt;
+
+&lt;p&gt;Map is defined in apidock as &amp;lsquo;Returns a new array with the results of
+running block once for every element in enum.&amp;rsquo; What this basically means
+is it will loop over the array and make changes to the each item in the
+array and then add it to a new temporary array.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;vi&quot;&gt;@authors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_safe&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;vi&quot;&gt;@authors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Above line is the map method &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_safe&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Above line is the block of code that runs on each array item. When the
+map method is done it returns an array with however many elements and
+then we concatenate those with a join. I found that the join was printing
+out the html tags as a string so I used .html_safe to have it print out
+html code also. This way handles the last comma issue without
+the extra code. Very railseque I would say!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Jul 2011 00:23:55 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/</guid>
+      </item>
+    
+      <item>
+        <title>Run Multiple Rails Servers at the Same Time on Your Computer</title>
+        <description>&lt;p&gt;Ever wondered how to run multiple instances of rails server? Below is the snippet to do that.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;#rails s -p port number&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3001&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#for example&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Tue, 14 Jun 2011 20:16:35 -0400</pubDate>
+        <link>http://jearvondharrie.com/2011/06/14/run-multiple-rails-servers-at-the-same-time-on-your-computer/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/2011/06/14/run-multiple-rails-servers-at-the-same-time-on-your-computer/</guid>
+      </item>
+    
   </channel>
 </rss>
