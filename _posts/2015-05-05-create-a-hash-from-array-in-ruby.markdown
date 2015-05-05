@@ -16,7 +16,7 @@ You would like to create a hash from an array or a nested array.
 
 ### Solution
 
-Enter the class method ```[]``` on Hash
+Enter the [class method](http://ruby-doc.org/core-2.2.0/Hash.html#method-c-5B-5D) ```[]``` on Hash
 
 ```ruby
   # array
