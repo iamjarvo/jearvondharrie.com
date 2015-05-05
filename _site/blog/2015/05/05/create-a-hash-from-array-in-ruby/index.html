@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Create a hash from an array in Ruby &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jearvon Dharrie's web presence">
+    <meta name="description" content="Create a hash from an array in Ruby">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/page3/">
+    <meta name="keywords" content="blog">
+    <link rel="canonical" href="http://jearvondharrie.com/blog/2015/05/05/create-a-hash-from-array-in-ruby/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Create a hash from an array in Ruby">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/page3/">
+    <meta property="og:url" content="http://jearvondharrie.com/blog/2015/05/05/create-a-hash-from-array-in-ruby/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,52 +90,50 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/2011/08/25/bookmarklet-for-opening-links-in-a-new-tab/" class="post-link">
-          <p class="post-meta">Aug 25, 2011</p>
-          <h3 class="h2 post-title">Bookmarklet for Opening Links in a New Tab</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/2011/08/13/rails-haml-print-html-element-if-value-exists/" class="post-link">
-          <p class="post-meta">Aug 13, 2011</p>
-          <h3 class="h2 post-title">Rails/Haml Print HTML Element if Value Exists</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/2011/07/21/link_to-takes-a-block/" class="post-link">
-          <p class="post-meta">Jul 21, 2011</p>
-          <h3 class="h2 post-title">Link_to Takes a Block!</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      
-        <a class="pagination-item" href="/page2/">Newer</a>
-      
-    
-  </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page4/">Older</a>
-    
-  </div>
+
+
+<div class="post-header mb2">
+  <h1>Create a hash from an array in Ruby</h1>
+  <span class="post-meta">May 5, 2015</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <h3 id="problem">Problem</h3>
+
+<p>You would like to create a hash from an array or a nested array.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>Enter the class method <code>[]</code> on Hash</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="c1"># array</span>
+  <span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:uno</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:dos</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:tres</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+  <span class="no">Hash</span><span class="o">[*</span><span class="n">array</span><span class="o">]</span> <span class="c1"># =&gt; {:uno =&gt; 1, :dos =&gt; 2, :tres =&gt; 3}</span>
+
+  <span class="c1"># nested array</span>
+  <span class="n">nested_array</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:uno</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="ss">:dos</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="ss">:tres</span> <span class="mi">3</span><span class="o">]]</span>
+  <span class="no">Hash</span><span class="o">[</span><span class="n">nested_array</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:uno</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:dos</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:tres</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">}</span>
+</code></pre></div>
+<p>Things to note with the array version:</p>
+
+<ul>
+<li>The array needs to contain an even number of elements</li>
+<li>The <code>*</code> operator needs to be used. It converts the array into method arguments.</li>
+</ul>
+
+<script type="text/javascript" src="https://asciinema.org/a/19541.js" id="asciicast-19541" async></script>
+
+</article>
+
+
+
+
+
+
 
       </div>
     </div>

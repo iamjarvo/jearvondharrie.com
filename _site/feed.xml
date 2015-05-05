@@ -7,6 +7,37 @@
     <atom:link href="http://jearvondharrie.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Create a hash from an array in Ruby</title>
+        <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;You would like to create a hash from an array or a nested array.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Enter the class method &lt;code&gt;[]&lt;/code&gt; on Hash&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;# array&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:uno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:tres&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; {:uno =&amp;gt; 1, :dos =&amp;gt; 2, :tres =&amp;gt; 3}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# nested array&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;nested_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:uno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:dos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:tres&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nested_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:uno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:tres&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Things to note with the array version:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The array needs to contain an even number of elements&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;*&lt;/code&gt; operator needs to be used. It converts the array into method arguments.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://asciinema.org/a/19541.js&quot; id=&quot;asciicast-19541&quot; async&gt;&lt;/script&gt;
+</description>
+        <pubDate>Tue, 05 May 2015 00:00:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/blog/2015/05/05/create-a-hash-from-array-in-ruby/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/blog/2015/05/05/create-a-hash-from-array-in-ruby/</guid>
+      </item>
+    
+      <item>
         <title>Skip to next modified file in git</title>
         <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
 
@@ -175,17 +206,6 @@ the extra code. Very railseque I would say!&lt;/p&gt;
         <pubDate>Tue, 19 Jul 2011 00:23:55 -0400</pubDate>
         <link>http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/</link>
         <guid isPermaLink="true">http://jearvondharrie.com/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/</guid>
-      </item>
-    
-      <item>
-        <title>Run Multiple Rails Servers at the Same Time on Your Computer</title>
-        <description>&lt;p&gt;Ever wondered how to run multiple instances of rails server? Below is the snippet to do that.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;#rails s -p port number&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3001&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#for example&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Tue, 14 Jun 2011 20:16:35 -0400</pubDate>
-        <link>http://jearvondharrie.com/2011/06/14/run-multiple-rails-servers-at-the-same-time-on-your-computer/</link>
-        <guid isPermaLink="true">http://jearvondharrie.com/2011/06/14/run-multiple-rails-servers-at-the-same-time-on-your-computer/</guid>
       </item>
     
   </channel>
