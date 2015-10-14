@@ -7,6 +7,27 @@
     <atom:link href="http://jearvondharrie.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Base64 encode and decode in Emacs</title>
+        <description>&lt;h3 id=&quot;problem&quot;&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;Need to Base64 encode or decode a region&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;To encode, highlight the region and &lt;code&gt;M-x&lt;/code&gt; &lt;code&gt;base64-encode-region&lt;/code&gt; &lt;/p&gt;
+
+&lt;p&gt;To decode, highlight the region and &lt;code&gt;M-x&lt;/code&gt; &lt;code&gt;base64-decode-region&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;More info in the &lt;a href=&quot;http://www.gnu.org/software/emacs/manual/html_node/elisp/Base-64.html&quot;&gt;docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&quot;https://twitter.com/jwinter&quot;&gt;jwinter&lt;/a&gt; for showing this to me.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 13 Oct 2015 00:00:00 -0400</pubDate>
+        <link>http://jearvondharrie.com/blog/2015/10/13/base64-encoding-decoding-emacs/</link>
+        <guid isPermaLink="true">http://jearvondharrie.com/blog/2015/10/13/base64-encoding-decoding-emacs/</guid>
+      </item>
+    
+      <item>
         <title>Git productivity and tricks</title>
         <description>&lt;p&gt;Below is a slide deck for a lightning talk on git productivity and tricks.&lt;/p&gt;
 
@@ -154,27 +175,6 @@ I cd to the current folder it went to the latest release folder. When I pushed a
         <pubDate>Sat, 13 Aug 2011 18:15:00 -0400</pubDate>
         <link>http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/</link>
         <guid isPermaLink="true">http://jearvondharrie.com/2011/08/13/rails-haml-print-html-element-if-value-exists/</guid>
-      </item>
-    
-      <item>
-        <title>Link_to Takes a Block!</title>
-        <description>&lt;p&gt;Have you ever wanted to surround a block of HTML with an a tag, for example a group of images. It is possible to do this because &lt;a href=&quot;http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to&quot; title=&quot;link_to&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt; takes a block. According to apidock the syntax is:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;link_to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In my idea situation i need to get the images for all the books in a certain genre and have them surrounded by one a tag. Reason I need this is because they are forming a slideshow. My code came out to be:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;     &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% link_to(genre_path(genre)) &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;sx&quot;&gt;        &amp;lt;div class=&amp;quot;home_gallery_images&amp;quot;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% books &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shuffle&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;sx&quot;&gt;          &amp;lt;% for book in books %&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:medium&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;sx&quot;&gt;          &amp;lt;% end %&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% end &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Thu, 21 Jul 2011 13:44:29 -0400</pubDate>
-        <link>http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/</link>
-        <guid isPermaLink="true">http://jearvondharrie.com/2011/07/21/link_to-takes-a-block/</guid>
       </item>
     
   </channel>

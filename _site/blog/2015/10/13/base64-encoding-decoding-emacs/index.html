@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jearvon Dharrie</title>
+    <title>Base64 encode and decode in Emacs &#8211; Jearvon Dharrie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jearvon Dharrie's web presence">
+    <meta name="description" content="Base64 encoding and decoding in Emacs">
     <meta name="author" content="Jearvon Dharrie">
-    
-    <link rel="canonical" href="http://jearvondharrie.com/page4/">
+    <meta name="keywords" content="blog">
+    <link rel="canonical" href="http://jearvondharrie.com/blog/2015/10/13/base64-encoding-decoding-emacs/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Jearvon Dharrie">
+    <meta property="og:title" content="Base64 encode and decode in Emacs">
     <meta property="og:description" content="Jearvon Dharrie's web presence">
-    <meta property="og:url" content="http://jearvondharrie.com/page4/">
+    <meta property="og:url" content="http://jearvondharrie.com/blog/2015/10/13/base64-encoding-decoding-emacs/">
     <meta property="og:site_name" content="Jearvon Dharrie">
 
     <!-- Icons -->
@@ -90,52 +90,40 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="home">
+        
 
-  <div class="posts">
-    
-      <div class="post">
-        <a href="/2011/08/13/rails-haml-print-html-element-if-value-exists/" class="post-link">
-          <p class="post-meta">Aug 13, 2011</p>
-          <h3 class="h2 post-title">Rails/Haml Print HTML Element if Value Exists</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/2011/07/21/link_to-takes-a-block/" class="post-link">
-          <p class="post-meta">Jul 21, 2011</p>
-          <h3 class="h2 post-title">Link_to Takes a Block!</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-      <div class="post">
-        <a href="/2011/07/19/ruby-separate-array-items-and-perform-actions-on-each-item/" class="post-link">
-          <p class="post-meta">Jul 19, 2011</p>
-          <h3 class="h2 post-title">Ruby Separate Array Items and Perform Actions on Each Item</h3>
-          <p class="post-summary"></p>
-        </a>
-      </div>
-    
-  </div>
 
-  <div class="pagination clearfix mb1 mt4">
-  <div class="left">
-    
-      
-        <a class="pagination-item" href="/page3/">Newer</a>
-      
-    
-  </div>
-  <div class="right">
-    
-      <a class="pagination-item" href="/page5/">Older</a>
-    
-  </div>
+
+
+<div class="post-header mb2">
+  <h1>Base64 encode and decode in Emacs</h1>
+  <span class="post-meta">Oct 13, 2015</span><br>
+  
+  <span class="post-meta small">1 minute read</span>
 </div>
 
-</div>
+<article class="post-content">
+  <h3 id="problem">Problem</h3>
+
+<p>Need to Base64 encode or decode a region</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>To encode, highlight the region and <code>M-x</code> <code>base64-encode-region</code> </p>
+
+<p>To decode, highlight the region and <code>M-x</code> <code>base64-decode-region</code></p>
+
+<p>More info in the <a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Base-64.html">docs</a></p>
+
+<p><em>Thanks to <a href="https://twitter.com/jwinter">jwinter</a> for showing this to me.</em></p>
+
+</article>
+
+
+
+
+
+
 
       </div>
     </div>
